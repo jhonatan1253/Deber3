@@ -1,0 +1,215 @@
+String x1=("El dos es un numero primo?");
+String x2=("El sol es un planeta ?");
+String x3=("La tierra tiene cien años de vida ?");
+String x4=("El perro es un mamifero ?");
+String x5=("El cangrejo tiene pulmones ?");
+String x6=("Marte es una estrella?");
+String x7=("Paris es una ciudad ?");
+String x8=("Ecuador es un pais ?");
+String x9=("La luna es negra?");
+int resultado=0;
+int entrada=1;
+const int A=8; 
+const int B=9; 
+const int C=10; 
+const int D=11; 
+int y0 =0;
+int y1 =0;
+int y2 =0;
+int y3 =0;
+int y4 =0;
+int y5 =0;
+int y6 =0;
+int y7 =0;
+int y8 =0;
+int tam;
+
+void setup() {
+  pinMode(A,OUTPUT); 
+  pinMode(B,OUTPUT); 
+  pinMode(C,OUTPUT); 
+  pinMode(D,OUTPUT); 
+  Serial.begin(9600);
+  Serial.println("Bienvenido");
+  Serial.println("Responder las siguientes preguntas");
+  Serial.println();
+  }
+
+void loop() {
+  delay(1000);
+  if(entrada==1){
+    entrada=0;
+    int num,j;
+    for (j=0;j<5;j++){
+      delay(3);
+      randomSeed(millis());
+      num=random(8);
+      Serial.print(num);
+        if(num==0){
+        delay(1000);
+        Serial.println("El dos es un numero primo?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp0=Serial.readString();
+          if(resp0=="si"){
+            y0=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==1){
+        delay(1000);
+        Serial.println("El sol es un planeta ?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp1=Serial.readString();
+          if(resp1=="no"){
+            y1=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==2){
+        delay(1000);
+        Serial.println("La tierra tiene cien años de vida ?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp2=Serial.readString();
+          if(resp2=="no"){
+            y2=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==3){
+        delay(1000);
+        Serial.println("El perro es un mamifero ?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp3=Serial.readString();
+          if(resp3=="si"){
+            y3=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==4){
+        delay(1000);
+        Serial.println("El cangrejo tiene pulmones ?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp4=Serial.readString();
+          if(resp4=="no"){
+            y4=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==5){
+        delay(1000);
+        Serial.println("Marte es una estrella?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp5=Serial.readString();
+          if(resp5=="no"){
+            y5=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==6){
+        delay(1000);
+        Serial.println("Paris es una ciudad ?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp6=Serial.readString();
+          if(resp6=="si"){
+            y6=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==7){
+        delay(1000);
+        Serial.println("Ecuador es un pais ?");
+        delay(5000);
+        if(Serial.available()>0){
+        String resp7=Serial.readString();
+          if(resp7=="si"){
+            y7=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+        if(num==8){
+        delay(1000);
+        Serial.println("La luna es negra?");
+        delay(4000);
+        if(Serial.available()>0){
+        String resp8=Serial.readString();
+          if(resp8=="no"){
+            y8=1;
+            Serial.println("Correcto");
+          }else 
+          Serial.println("Incorrecto");
+        }
+        Serial.println(""); 
+        }
+             
+    resultado = y0+y1+y2+y3+y4+y5+y6+y7+y8;
+    if(resultado==0){
+        digitalWrite(A,LOW);
+        digitalWrite(B,LOW);
+        digitalWrite(C,LOW);
+        digitalWrite(D,LOW);
+    }
+    if(resultado==1){
+        digitalWrite(A,HIGH);
+        digitalWrite(B,LOW);
+        digitalWrite(C,LOW);
+        digitalWrite(D,LOW);
+    }
+    if(resultado==2){
+        digitalWrite(A,LOW);
+        digitalWrite(B,HIGH);
+        digitalWrite(C,LOW);
+        digitalWrite(D,LOW);
+    }
+    if(resultado==3){
+        digitalWrite(A,HIGH);
+        digitalWrite(B,HIGH);
+        digitalWrite(C,LOW);
+        digitalWrite(D,LOW);
+    }
+    if(resultado==4){
+        digitalWrite(A,LOW);
+        digitalWrite(B,LOW);
+        digitalWrite(C,HIGH);
+        digitalWrite(D,LOW);
+    }
+    if(resultado==5){
+        digitalWrite(A,HIGH);
+        digitalWrite(B,LOW);
+        digitalWrite(C,HIGH);
+        digitalWrite(D,LOW);
+    }
+   }
+    Serial.println(String("Su puntaje es ")+String(resultado));
+  }
+}
